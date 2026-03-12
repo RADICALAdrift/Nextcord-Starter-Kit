@@ -9,7 +9,7 @@ This repository is designed to provide a **clean starting point** for building D
 ## Features
 
 - Modular **cog-based architecture**
-- Slash command support using **Nextcord**
+- Slash command support using **Nextcord 3.X.X**
 - Twitch live notifications
 - GitHub auto-updater for data files
 - Simple `.env` configuration
@@ -22,8 +22,8 @@ This repository is designed to provide a **clean starting point** for building D
 
 - Python **3.12 or newer**
 - A **Discord bot token**
-- Twitch API credentials (only required if using the Twitch cog)
 - Git (optional, used for the auto-updater)
+- Twitch API credentials (only required if using the Twitch cog)
 
 ---
 
@@ -57,8 +57,11 @@ Start the bot:
 ### Linux / macOS
 
 ```bash
+chmod +x start.sh
 ./start.sh
 ```
+
+(chmod +x start.sh only needs to be done once)
 
 ### Windows
 
