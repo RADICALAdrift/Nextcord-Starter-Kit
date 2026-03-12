@@ -76,20 +76,28 @@ start.bat
 ```
 Nextcord-Starter-Kit
 │
+├── cogs/                # Core cogs loaded by the bot
+│   ├── server.py
+│   ├── start.py
+│   └── status.py
+│
+├── cogs-optional/       # Optional or community-contributed cogs
+│   ├── autoupdater.py
+│   ├── responder.py
+│   ├── twitch.py
+│   └── user.py
+│
+├── data/                # Data files used by the bot
+│   ├── assets (folder)
+│   ├── twitch_cog_files (Folder, populated from the Nexic Data Repo)
+│   ├── bot_status.json (File, from the Nexic Data Repo)
+│   └── user_responses.json
+│
 ├── bot.py
 ├── requirements.txt
 ├── example.env
-├── start.sh
 ├── start.bat
-│
-├── cogs/                # Core cogs loaded by the bot
-│   ├── start.py
-│   ├── twitch.py
-│   └── autoupdater.py
-│
-├── cogs-optional/       # Optional or community-contributed cogs
-│
-└── data/                # Data files used by the bot
+└── start.sh
 ```
 
 ---
