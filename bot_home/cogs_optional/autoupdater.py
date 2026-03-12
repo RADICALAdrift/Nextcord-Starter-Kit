@@ -58,8 +58,8 @@ class AutoUpdater(commands.Cog):
             print("[DEBUG-UPDATER] Cloning Nexic-Data repo (shallow)...")
             git.Repo.clone_from(self.repo_url, tmp_dir, branch=self.repo_branch, depth=1, single_branch=True,)
 
-            src_channel_maps = tmp_dir / "channel_maps" # Paths in the repo
-            src_status = tmp_dir / "bot_status.json"
+            src_channel_maps = tmp_dir / "data" / "channel_maps" # Paths in the repo
+            src_status = tmp_dir / "data" / "bot_status.json"
 
             if not src_channel_maps.exists(): # Validate expected files exist
                 raise FileNotFoundError(f"Missing channel_maps in repo: {src_channel_maps}")
