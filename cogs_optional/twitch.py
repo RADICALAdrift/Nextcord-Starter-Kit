@@ -51,7 +51,7 @@ def _discover_channel_maps() -> Dict[str, dict]:
     for path in sorted(base.glob("twitch*.json")):
         name = path.name
 
-        if name == "twitch.json":
+        if name == "twitch_nexus.json":
             category = "main"
         else:
             category = path.stem.removeprefix("twitch_")
