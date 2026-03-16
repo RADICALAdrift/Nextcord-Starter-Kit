@@ -25,9 +25,7 @@ TWITCH_TOKEN_EXPIRES_AT = os.getenv("TWITCHLIVE_TOKEN_EXPIRES_AT", "")
 
 # Custom messages (kept)
 CUSTOM_MESSAGES = {
-    "example_name": (
-        "example_custom_message"
-    ),
+    "examplename": "{friendly}! is live 💖 Watch the magic unfold here: {url}",
 }
 
 # Channel map loaders (unchanged semantics)
