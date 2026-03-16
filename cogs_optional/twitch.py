@@ -335,17 +335,40 @@ class Twitch(commands.Cog):
                 url = f"https://www.twitch.tv/{login}"
                 game = live_now[login].get("game_name", "Unknown")
                 title = live_now[login].get("title", "Untitled")
-                msg = CUSTOM_MESSAGES.get(login, f"{friendly} is live!\nTitle: {title}\nPlaying: {game}\nWatch now: {url}")
-                await self._notify(meta["channel_id"], msg, role_id=meta["role_id"])
-                self.live_status[login] = {
-                    "is_live": True,
-                    "last_announced": now.isoformat(),
-                    "first_ping_time": now.isoformat(),
-                    "periodic_message_time": now.isoformat(),
-                    "ping_sent": True,
-                }
-                changed = True
-                continue
+                
+                default_msg = (
+                    f"{friendly} is live!\n"
+                    f"Title: {title}\n"
+                    f"Playing: {game}\n"
+                    f"Watch now: {url}"
+                )
+                
+                custom_template = CUSTOM_MESSAGES.get(login)
+                
+                if custom_template:
+                    msg = custom_template.format(
+                        friendly=friendly,
+                        url=url,
+                        game=game,
+                        title=title,
+                        login=login,
+                    )
+                    
+                    else:
+                        msg = default_msg
+                        
+                    await self._notify(meta["channel_id"], msg, role_id=meta["role_id"])
+                    
+                    self.live_status[login] = {
+                        "is_live": True,
+                        "last_announced": now.isoformat(),
+                        "first_ping_time": now.isoformat(),
+                        "periodic_message_time": now.isoformat(),
+                        "ping_sent": True,
+                    }
+                    
+                    changed = True
+                    continue
 
             # still live: periodic reminders
             if is_live and was_live:
